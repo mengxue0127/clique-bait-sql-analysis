@@ -25,13 +25,11 @@ The dataset contains five original tables:
 - `page_hierarchy`
 - `campaign_identifier`
 
-### Entity Relationship Diagram
-
-![Clique Bait ERD](erd/clique_bait_erd.png)
-
 The `events` table connects to user, event, and page information through `cookie_id`, `event_type`, and `page_id`.
 
 Campaigns are matched to visits using the visit start time because the `events` table does not contain a campaign ID.
+
+[View Entity Relationship Diagram](erd/clique_bait_erd.png)
 
 ## Analysis
 
@@ -46,13 +44,9 @@ The digital analysis examines:
 - Product category engagement
 - Top products by inferred purchases
 
-The complete queries are available in:
+[View Digital Analysis SQL](sql/01_digital_analysis.sql)
 
-`sql/01_digital_analysis.sql`
-
-Additional query results are stored in:
-
-`key_results/digital_analysis/`
+[View Digital Analysis Results](key_results/digital_analysis/)
 
 ### 2. Product Funnel Analysis
 
@@ -66,11 +60,11 @@ Product Views
 
 The analysis compares product and category performance, abandonment rates, and conversion rates.
 
-![Product Funnel Summary](key_results/product_funnel/product_funnel_summary.png)
+[View Product Funnel Analysis SQL](sql/02_product_funnel_analysis.sql)
 
-The complete queries are available in:
+[View Product Funnel Summary](key_results/product_funnel/product_funnel_summary.png)
 
-`sql/02_product_funnel_analysis.sql`
+[View All Product Funnel Results](key_results/product_funnel/)
 
 ### 3. Campaign Analysis
 
@@ -78,9 +72,7 @@ A visit-level campaign table was created with one row for each `visit_id`.
 
 Campaign performance was evaluated using page views, cart additions, purchases, impressions, clicks, and click-through rates.
 
-![Campaign Performance](key_results/campaign_analysis/campaign_performance.png)
-
-Users were also divided into three groups:
+Users were divided into three groups:
 
 - No Impression
 - Impression Only
@@ -88,11 +80,13 @@ Users were also divided into three groups:
 
 Their browsing, cart, and purchase behavior was compared across campaigns.
 
-![User Group Comparison](key_results/campaign_analysis/user_group_comparison.png)
+[View Campaign Analysis SQL](sql/03_campaign_analysis.sql)
 
-The complete queries are available in:
+[View Campaign Performance](key_results/campaign_analysis/campaign_performance.png)
 
-`sql/03_campaign_analysis.sql`
+[View User Group Comparison](key_results/campaign_analysis/user_group_comparison.png)
+
+[View All Campaign Results](key_results/campaign_analysis/)
 
 ## Assumptions and Limitations
 
@@ -127,9 +121,9 @@ clique-bait-sql-analysis/
 
 Run the SQL files in the following order:
 
-1. `sql/00_database_setup.sql`
-2. `sql/01_digital_analysis.sql`
-3. `sql/02_product_funnel_analysis.sql`
-4. `sql/03_campaign_analysis.sql`
+1. [Database Setup](sql/00_database_setup.sql)
+2. [Digital Analysis](sql/01_digital_analysis.sql)
+3. [Product Funnel Analysis](sql/02_product_funnel_analysis.sql)
+4. [Campaign Analysis](sql/03_campaign_analysis.sql)
 
 The setup script creates the database and imports the original data. The remaining scripts perform the digital, product funnel, and campaign analyses.
